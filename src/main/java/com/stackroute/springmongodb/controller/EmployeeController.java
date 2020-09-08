@@ -26,7 +26,7 @@ public class EmployeeController {
     public ResponseEntity<?> saveEmployee(@RequestBody Employee employee) {
         try {
             Employee savedEmployee = iEmployeeService.saveEmployee(employee);
-            responseEntity = new ResponseEntity(savedEmployee, HttpStatus.OK);
+            responseEntity = new ResponseEntity(savedEmployee, HttpStatus.CREATED);
         } catch (EmployeeAlreadyExistsException e) {
             responseEntity = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
         }
